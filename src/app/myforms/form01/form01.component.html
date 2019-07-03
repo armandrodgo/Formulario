@@ -1,0 +1,23 @@
+<h1>Primer Formulario</h1>
+<hr>
+<div class='container'>
+<form>
+   <label>Nombre de usuario:</label>
+    <input type='text' class='form-control' #usernameField [placeholder]='placeholders.usernme'>
+  <br/>
+   <label>Contraseña</label>
+    <input type='password' class='form-control' #usernamePass [placeholder]='placeholders.userpss'>
+    <br/>
+  <input type='button' (click)='recibirDatos(usernameField, usernamePass)' class="btn btn-primary" #sendButton value='Aceptar'>
+</form>
+
+<hr>
+<ng-container *ngIf="(usuariorecibido > '' && passwrecibida > ''); else sinDatos">
+    Nombre de usuario:<strong>{{usuariorecibido}}</strong>
+    <br>
+    Password recibido:{{passwrecibida}}
+</ng-container>
+<ng-template #sinDatos>
+  <strong>Falta el nombre de usuario, el password o ambos.</strong>
+</ng-template>
+</div>
